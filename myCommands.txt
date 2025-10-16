@@ -1,0 +1,465 @@
+
+students@L3A19 MINGW64 ~
+$ git --version
+git version 2.51.0.windows.2
+
+students@L3A19 MINGW64 ~
+$ git config --global user.name "AryaTholiya"
+
+students@L3A19 MINGW64 ~
+$ git config --global user.email "aryatholiya12345@gmail.com"
+
+students@L3A19 MINGW64 ~
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=schannel
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+core.editor="C:\Users\students\AppData\Local\Programs\Microsoft VS Code\bin\code" --wait
+user.name=AryaTholiya
+user.email=aryatholiya12345@gmail.com
+
+students@L3A19 MINGW64 ~
+$ mkdir my-first-repo
+
+students@L3A19 MINGW64 ~
+$ cd my-first-repo
+
+students@L3A19 MINGW64 ~/my-first-repo
+$ git init
+Initialized empty Git repository in C:/Users/students/my-first-repo/.git/
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ echo "# My First Project" > README.md
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git add README.md
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git add .
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git commit -m "Initial commit: ADD README"
+[master (root-commit) ca513fd] Initial commit: ADD README
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git log
+commit ca513fdf3796c596b4683ebdacc6a83ad97868ef (HEAD -> master)
+Author: AryaTholiya <aryatholiya12345@gmail.com>
+Date:   Thu Oct 16 08:15:19 2025 +0530
+
+    Initial commit: ADD README
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git log --oneline
+ca513fd (HEAD -> master) Initial commit: ADD README
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git log --oneline
+ca513fd (HEAD -> master) Initial commit: ADD README
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ echo "This is my first Git project" >> README.md
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git diff
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+diff --git a/README.md b/README.md
+index c6f75a8..9cd33fd 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,2 @@
+ # My First Project
++This is my first Git project
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git diff --staged
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git diff --oneline
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+diff --git a/README.md b/README.md
+index c6f75a8..9cd33fd 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,2 @@
+ # My First Project
++This is my first Git project
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git restore --staged README.md
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git restore README.md
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ cat > .gitignore << EOF
+> *.log
+> node_modules/
+> .env
+> *.tmp
+> EOF
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git add .gitignore
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+gi
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git commit -m "Add .gitignore file"
+[master b088a32] Add .gitignore file
+ 1 file changed, 4 insertions(+)
+ create mode 100644 .gitignore
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git log --oneline
+b088a32 (HEAD -> master) Add .gitignore file
+ca513fd Initial commit: ADD README
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git branch
+* master
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git branch feature-login
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git branch
+  feature-login
+* master
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git checkout feature-login
+Switched to branch 'feature-login'
+
+students@L3A19 MINGW64 ~/my-first-repo (feature-login)
+$ git switch -c feature-login
+fatal: a branch named 'feature-login' already exists
+
+students@L3A19 MINGW64 ~/my-first-repo (feature-login)
+$ echo "Login functionality" > login.txt
+
+students@L3A19 MINGW64 ~/my-first-repo (feature-login)
+$ git add login.txt
+warning: in the working copy of 'login.txt', LF will be replaced by CRLF the next time Git touches it
+g
+students@L3A19 MINGW64 ~/my-first-repo (feature-login)
+$ git commit -m "Add login feature"
+[feature-login 9d2b216] Add login feature
+ 1 file changed, 1 insertion(+)
+ create mode 100644 login.txt
+
+students@L3A19 MINGW64 ~/my-first-repo (feature-login)
+$ git log --oneline
+9d2b216 (HEAD -> feature-login) Add login feature
+b088a32 (master) Add .gitignore file
+ca513fd Initial commit: ADD README
+
+students@L3A19 MINGW64 ~/my-first-repo (feature-login)
+$ git checkout main
+error: pathspec 'main' did not match any file(s) known to git
+
+students@L3A19 MINGW64 ~/my-first-repo (feature-login)
+$ git merge feature-login
+Already up to date.
+
+students@L3A19 MINGW64 ~/my-first-repo (feature-login)
+$ git branch
+* feature-login
+  master
+
+students@L3A19 MINGW64 ~/my-first-repo (feature-login)
+$ git checkout main
+error: pathspec 'main' did not match any file(s) known to git
+
+students@L3A19 MINGW64 ~/my-first-repo (feature-login)
+$ git checkout master
+Switched to branch 'master'
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git merge feature-login
+Updating b088a32..9d2b216
+Fast-forward
+ login.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 login.txt
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git branch
+  feature-login
+* master
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git branch -d feature-login
+Deleted branch feature-login (was 9d2b216).
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git branch -D feature-login
+error: branch 'feature-login' not found
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git log
+commit 9d2b21680ca47b0418bbceff554ab00bcd07252c (HEAD -> master)
+Author: AryaTholiya <aryatholiya12345@gmail.com>
+Date:   Thu Oct 16 08:21:02 2025 +0530
+
+    Add login feature
+
+commit b088a32f4f753fef34815460f64bfa4730e3599d
+Author: AryaTholiya <aryatholiya12345@gmail.com>
+Date:   Thu Oct 16 08:19:18 2025 +0530
+
+    Add .gitignore file
+
+commit ca513fdf3796c596b4683ebdacc6a83ad97868ef
+Author: AryaTholiya <aryatholiya12345@gmail.com>
+Date:   Thu Oct 16 08:15:19 2025 +0530
+
+    Initial commit: ADD README
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ ls
+README.md  login.txt
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ ls -al ~/.ssh
+total 36
+drwxr-xr-x 1 students 197121    0 Jul 31 08:45 ./
+drwxr-xr-x 1 students 197121    0 Oct 16 08:22 ../
+-rw-r--r-- 1 students 197121 1677 Jul 31 08:45 known_hosts
+-rw-r--r-- 1 students 197121  933 Jul 31 08:44 known_hosts.old
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ ssh-keygen -t ed25519 -C "aryatholiya12345@gmail.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/c/Users/students/.ssh/id_ed25519): saved_key.txt
+Enter passphrase for "saved_key.txt" (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in saved_key.txt
+Your public key has been saved in saved_key.txt.pub
+The key fingerprint is:
+SHA256:fqtzztIRVQoEHft1zOglH56uLIRNTaImvV9ebQs5j0U aryatholiya12345@gmail.com
+The key's randomart image is:
++--[ED25519 256]--+
+|        .++. ..  |
+|          .+.o + |
+|        . o.= +.=|
+|       . +.o +.Eo|
+|        S =.. +oo|
+|       . o.o =.oo|
+|        ..+.o Bo.|
+|        ooo+.o.o |
+|        .*+ .o   |
++----[SHA256]-----+
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ eval "$(ssh-agent -s)"
+Agent pid 1839
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ ssh-add ~/.ssh/id_ed25519
+/c/Users/students/.ssh/id_ed25519: No such file or directory
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ cat README.md
+# My First Project
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ ssh-keygen -t ed25519 -C "aryatholiya12345@gmail.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/c/Users/students/.ssh/id_ed25519):
+Enter passphrase for "/c/Users/students/.ssh/id_ed25519" (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/students/.ssh/id_ed25519
+Your public key has been saved in /c/Users/students/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:UbPMIDaYzcP855Wi0fvcm+6kSPljr8sUNcAGPaIIIsQ aryatholiya12345@gmail.com
+The key's randomart image is:
++--[ED25519 256]--+
+|o.   B+ . ++.    |
+|.E. +.*o =.o=.   |
+| . . . +.o+o oo  |
+|      . +.+ o. . |
+|        S= +.    |
+|        . o. .   |
+|          oo...  |
+|         . ==o.. |
+|          ..*B*. |
++----[SHA256]-----+
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ ssh-add /c/Users/students/.ssh/id_ed25519
+Identity added: /c/Users/students/.ssh/id_ed25519 (aryatholiya12345@gmail.com)
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ clip < ~/.ssh/id_ed25519.pub
+bash: clip: command not found
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ clip
+bash: clip: command not found
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ echo $PATH
+/c/Users/students/bin:/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/mingw64/bin:/usr/bin:/c/Users/students/bin:/c/Users/students/AppData/Local/Programs/Python/Python313/Scripts:/c/Users/students/AppData/Local/Programs/Python/Python313:%USERPROFILE%/AppData/Local/Microsoft/WindowsApps:/c/Users/students/AppData/Local/Programs/Microsoft VS Code/bin:/cmd:/mingw64/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ export PATH="$PATH:/c/Windows/System32:/c/Windows\SysWOW64"
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ clip
+
+INFO: Type "CLIP /?" for usage.
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ clip < /c/Users/students/.ssh/id_ed25519.pub
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ ssh -T git@github.com
+The authenticity of host 'github.com (20.207.73.82)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? y
+Please type 'yes', 'no' or the fingerprint: ye
+Please type 'yes', 'no' or the fingerprint: yes
+Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
+Hi AryaTholiya! You've successfully authenticated, but GitHub does not provide shell access.
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git remote add origin git@github.com:username/my-first-repo.git
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git remote -v
+origin  git@github.com:username/my-first-repo.git (fetch)
+origin  git@github.com:username/my-first-repo.git (push)
+
+students@L3A19 MINGW64 ~/my-first-repo (master)
+$ git branch -M main
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ git push -u origin main
+ERROR: Repository not found.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ git push
+fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ git bransh
+git: 'bransh' is not a git command. See 'git --help'.
+
+The most similar command is
+        branch
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$
+ch
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ git branch
+* main
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ git push -u origin main
+ERROR: Repository not found.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ ssh-keygen -t ed25519 -C "aryatholiya12345@gmail.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/c/Users/students/.ssh/id_ed25519):
+/c/Users/students/.ssh/id_ed25519 already exists.
+Overwrite (y/n)?
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ eval "$(ssh-agent -s)"
+Agent pid 1977
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ ssh-add /c/Users/students/.ssh/id_ed25519
+Identity added: /c/Users/students/.ssh/id_ed25519 (aryatholiya12345@gmail.com)
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ cat ~/.ssh/id_ed25519.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGF6/t+f3CsYg97wzw+7blDYLuu0UvfZX74LqSEdecjx aryatholiya12345@gmail.com
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ clip < ~/.ssh/id_ed25519.pub
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ ssh -T git@github.com
+Hi AryaTholiya! You've successfully authenticated, but GitHub does not provide shell access.
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ git remote add origin git@github.com:AryaTholiya/my-first-repo.git
+error: remote origin already exists.
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ git remote -v
+origin  git@github.com:username/my-first-repo.git (fetch)
+origin  git@github.com:username/my-first-repo.git (push)
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ git remote
+origin
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ git remote set-url origin git@github.com:AryaTholiya/my-first-repo.git
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ git remote -v
+origin  git@github.com:AryaTholiya/my-first-repo.git (fetch)
+origin  git@github.com:AryaTholiya/my-first-repo.git (push)
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ git branch -M main
+
+students@L3A19 MINGW64 ~/my-first-repo (main)
+$ git push -u origin main
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (9/9), 778 bytes | 778.00 KiB/s, done.
+Total 9 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), done.
+To github.com:AryaTholiya/my-first-repo.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
